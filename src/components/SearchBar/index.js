@@ -20,7 +20,7 @@ class SearchBar extends Component {
     });
   };
 
-  fetchWeather = () => {
+  fetchWeather = e => {
     if (!this.state.inputValue) return;
     this.props.fetchWeather(this.state.inputValue);
     this.setState({ inputValue: "" });
@@ -33,6 +33,7 @@ class SearchBar extends Component {
           className={styles.input}
           value={this.state.inputValue}
           onChange={this.onInputChange}
+          onKeyDown={e => e.keyCode === 13 && this.fetchWeather(e)}
           placeholder="City name"
         />
         {this.props.loading ? (
