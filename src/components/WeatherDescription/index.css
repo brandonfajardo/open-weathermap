@@ -1,0 +1,51 @@
+.card {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.topContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cityName {
+  font-size: 25px;
+  color: #878787;
+}
+
+.cityDescription {
+  color: #878787;
+}
+
+.midContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+}
+
+.cityPhoto {
+  height: 70px;
+  width: 70px;
+  align-self: center;
+}
+
+.cityTemp {
+  font-size: 50px;
+  margin: 0px;
+  align-self: center;
+  margin-left: 15px;
+}
+
+.cityTempSize {
+  font-size: 15px;
+}
+
+.cityExtraDescription {
+  color: #878787;
+  display: block;
+  font-size: 12px;
+}
