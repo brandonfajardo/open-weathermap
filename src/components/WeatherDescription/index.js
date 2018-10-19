@@ -5,7 +5,6 @@ import { get } from "lodash";
 import * as actions from "../../actions";
 import { connect } from "react-redux";
 import styles from "./index.css";
-import cn from "classnames";
 
 class WeatherDescription extends Component {
   state = {
@@ -32,13 +31,13 @@ class WeatherDescription extends Component {
         ? (Math.floor(temp) * 9) / 5 + 32
         : Math.floor(temp);
     };
-
+    const { id, name, removeCity } = this.props;
     return (
       <Card className={styles.card}>
         <div className={styles.topContainer}>
-          <span className={styles.cityName}>{this.props.name}</span>
+          <span className={styles.cityName}>{name}</span>
           <DeleteOutlinedIcon
-            onClick={() => this.props.removeCity(this.props.id)}
+            onClick={() => removeCity(id)}
             style={{ cursor: "pointer" }}
           />
         </div>

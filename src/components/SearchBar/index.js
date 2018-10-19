@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import * as actions from "../../actions";
 
 import Button from "@material-ui/core/Button";
@@ -27,6 +26,7 @@ class SearchBar extends Component {
   };
 
   render() {
+    const { loading, error } = this.props;
     return (
       <Fragment>
         <TextField
@@ -36,7 +36,7 @@ class SearchBar extends Component {
           onKeyDown={e => e.keyCode === 13 && this.fetchWeather(e)}
           placeholder="City name"
         />
-        {this.props.loading ? (
+        {loading ? (
           <CircularProgress />
         ) : (
           <Button
@@ -47,11 +47,8 @@ class SearchBar extends Component {
             Search
           </Button>
         )}
-        {this.props.error && (
-          <SnackbarContent
-            style={{ margin: "10px" }}
-            message={"City was unable to be found"}
-          />
+        {error && (
+          <SnackbarContent style={{ margin: "10px" }} message={error} />
         )}
       </Fragment>
     );
@@ -65,10 +62,6 @@ const mapState = state => ({
 
 const mapDispatch = {
   fetchWeather: actions.fetchWeather
-};
-
-SearchBar.propTypes = {
-  fetchWeather: PropTypes.func
 };
 
 export default connect(

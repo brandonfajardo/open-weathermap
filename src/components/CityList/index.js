@@ -16,7 +16,6 @@ const CityList = ({ cities }) => {
             lg={3}
             container
           >
-            {" "}
             <WeatherDescription {...city} />
           </Grid>
         );

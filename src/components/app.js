@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { SearchBar, WeatherDescription, CityList } from "./index";
+import { SearchBar, CityList } from "./index";
 
 class App extends Component {
   render() {
-    const { cities, loading } = this.props;
+    const { cities } = this.props;
     return (
       <div>
         <SearchBar />
@@ -15,8 +15,7 @@ class App extends Component {
 }
 
 const mapState = state => ({
-  cities: state.weather.cities,
-  loading: state.weather.loading
+  cities: state.weather.cities
 });
 
 export default connect(mapState)(App);
